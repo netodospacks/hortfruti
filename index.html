@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mega Hortifruti Delivery | Frescor e Qualidade Todos os Dias</title>
+  <meta name="description" content="Catálogo digital profissional da Mega Hortifruti Delivery. Escolha frutas, verduras, legumes e temperos frescos e envie seu pedido pelo WhatsApp.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos Globais -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Bar Social / Contatos -->
+  <div class="topbar-social">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <i class="fas fa-leaf" style="color: #4ade80;"></i>
+        <span>Frescor e qualidade todos os dias — entrega em João Pessoa</span>
+      </div>
+      <div class="topbar-right">
+        <a href="https://instagram.com/megamaishortifruti" target="_blank" class="topbar-link">
+          <i class="fab fa-instagram"></i> @megamaishortifruti
+        </a>
+        <span class="topbar-divider">|</span>
+        <a href="https://api.whatsapp.com/send/?phone=5583986301554&text&type=phone_number&app_absent=0" target="_blank" class="topbar-link topbar-whatsapp">
+          <i class="fab fa-whatsapp"></i> (83) 98630-1554
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabeçalho Principal -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        
+        <!-- Identidade Visual: Logo + Nome -->
+        <div class="brand-wrapper" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <img src="images/logo.png" alt="Mega Mais Hortifruti Delivery" class="brand-logo">
+          <div class="brand-text-block">
+            <span class="brand-name">MEGA MAIS</span>
+            <span class="brand-sub">Hortifruti Delivery</span>
+          </div>
+        </div>
+
+        <!-- Campo de Pesquisa Instantânea -->
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Pesquise frutas, verduras, legumes, temperos..."
+            autocomplete="off"
+          >
+          <i class="fas fa-times-circle search-clear" id="search-clear" title="Limpar pesquisa"></i>
+        </div>
+
+        <!-- Ações do Cabeçalho -->
+        <div class="header-actions">
+          <a href="https://instagram.com/megamaishortifruti" target="_blank" class="btn-social-insta" title="Instagram @megamaishortifruti" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5583986301554&text&type=phone_number&app_absent=0" target="_blank" class="btn-social-wa" title="WhatsApp (83) 98630-1554" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="admin.html" class="btn-admin-discrete" title="Painel Administrativo Local">
+            <i class="fas fa-sliders-h"></i>
+          </a>
+          <button class="cart-toggle-btn" id="open-cart-btn" aria-label="Abrir carrinho">
+            <i class="fas fa-shopping-basket"></i>
+            <span class="cart-badge-count" id="cart-badge">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de Categorias Rápida e Fixa -->
+  <nav class="category-nav-bar">
+    <div class="container">
+      <div class="category-scroll" id="categories-bar">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+
+    <!-- Seção Principal Hero -->
+    <section class="hero-section">
+      <img 
+        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80" 
+        alt="Hortifruti fresco" 
+        class="hero-bg"
+      >
+      <div class="hero-overlay">
+        <div class="hero-pill">
+          <i class="fas fa-check-circle" style="color: #4ade80;"></i> Direto do Produtor
+        </div>
+        <h2 class="hero-title">Frescor e qualidade todos os dias.</h2>
+        <p class="hero-subtitle">
+          Escolha seus produtos, monte seu pedido e solicite pelo WhatsApp com entrega rápida e prática.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#catalog-sections" class="btn-primary">
+            <i class="fas fa-leaf" style="color: var(--primary);"></i> Ver catálogo
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5583986301554&text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20atendimento%20da%20Mega%20Mais%20Hortifruti%20Delivery.&type=phone_number&app_absent=0" target="_blank" class="btn-whatsapp-hero">
+            <i class="fab fa-whatsapp"></i> Fale conosco pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seções de Produtos do Catálogo -->
+    <div id="catalog-sections">
+      <!-- Renderizado via app.js -->
+    </div>
+
+  </main>
+
+  <!-- Botão Flutuante do WhatsApp Comercial -->
+  <a href="https://api.whatsapp.com/send/?phone=5583986301554&text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20da%20Mega%20Mais%20Hortifruti%20Delivery.&type=phone_number&app_absent=0" target="_blank" class="whatsapp-float-btn" id="whatsapp-float-btn" aria-label="Falar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-float-tooltip">Dúvidas? Fale conosco!</span>
+  </a>
+
+  <!-- Drawer / Modal Lateral do Carrinho -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer">
+      
+      <div class="cart-header">
+        <h3><i class="fas fa-shopping-basket" style="color: var(--primary);"></i> Meu Carrinho</h3>
+        <button class="btn-close-drawer" id="close-cart-btn" aria-label="Fechar carrinho">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="cart-items-body" id="cart-items-container">
+        <!-- Renderizado dinamicamente -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-line">
+          <span>Subtotal estimado:</span>
+          <span id="cart-summary-total">R$ 0,00</span>
+        </div>
+        <div class="cart-summary-note">
+          Valores finais sujeitos à confirmação da pesagem e disponibilidade no WhatsApp.
+        </div>
+
+        <div class="cart-customer-fields">
+          <input type="text" id="cart-customer-name" class="cart-input" placeholder="Seu nome (opcional)">
+          <input type="text" id="cart-customer-note" class="cart-input" placeholder="Bairro / Observação de entrega (opcional)">
+        </div>
+
+        <div class="cart-actions-footer">
+          <button class="btn-finalize-whatsapp" id="btn-checkout">
+            <i class="fab fa-whatsapp"></i> Finalizar pelo WhatsApp
+          </button>
+          <button class="btn-clear-cart" id="clear-cart-btn">
+            Esvaziar carrinho
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal de Revisão do Pedido antes do envio -->
+  <div class="modal-overlay" id="order-review-overlay">
+    <div class="modal-box">
+      
+      <div class="modal-header">
+        <h4><i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> Revisão do Pedido</h4>
+        <button class="btn-close-drawer" id="close-review-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4;">
+          Revise a mensagem pré-formatada que será enviada diretamente para o nosso WhatsApp comercial <strong>(83) 98694-0914</strong>:
+        </p>
+
+        <div class="whatsapp-preview-box" id="review-message-preview">
+          <!-- Conteúdo da mensagem montada -->
+        </div>
+
+        <p style="font-size: 0.78rem; color: var(--text-light); margin-top: 12px;">
+          <i class="fas fa-shield-alt"></i> Ao clicar em "Abrir WhatsApp", a conversa oficial será iniciada no seu aplicativo para você enviar o pedido com total segurança.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-admin-discrete" id="btn-cancel-review">Voltar e Editar</button>
+        <button class="btn-finalize-whatsapp" id="btn-confirm-whatsapp" style="width: auto; padding: 10px 20px; font-size: 0.92rem;">
+          <i class="fab fa-whatsapp"></i> Abrir WhatsApp Oficial
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/seed.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/repository.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
