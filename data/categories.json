@@ -1,0 +1,9 @@
+[
+  { "id": "todas", "name": "Todos os Produtos", "icon": "fa-th-large" },
+  { "id": "frutas", "name": "Frutas Frescas", "icon": "fa-apple-alt" },
+  { "id": "verduras", "name": "Verduras e Folhas", "icon": "fa-leaf" },
+  { "id": "legumes", "name": "Legumes", "icon": "fa-carrot" },
+  { "id": "temperos", "name": "Temperos e Ervas", "icon": "fa-mortar-pestle" },
+  { "id": "mercearia", "name": "Mercearia e Outros", "icon": "fa-shopping-basket" }
+]
+
