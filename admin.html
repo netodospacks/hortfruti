@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo | Mega Hortifruti Delivery</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: white;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-card .num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+    .stat-card .label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .admin-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .admin-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body style="background: #f1f5f9; padding-bottom: 60px;">
+
+  <!-- Header Admin -->
+  <header style="background: white; border-bottom: 1px solid var(--border); padding: 12px 0; box-shadow: var(--shadow-sm);">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="images/logo.png" alt="Mega Mais Hortifruti Delivery" style="height: 52px; width: auto;">
+        <div style="display: flex; flex-direction: column; line-height: 1.15;">
+          <span style="font-size: 1.15rem; font-weight: 900; color: var(--primary-dark); letter-spacing: -0.5px;">MEGA MAIS</span>
+          <span style="font-size: 0.7rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px;">Hortifruti Delivery</span>
+        </div>
+        <span style="margin-left: 8px; padding: 3px 10px; background: #fef3c7; color: #92400e; font-size: 0.72rem; font-weight: 700; border-radius: 6px; border: 1px solid #fde68a;">⚙️ Painel Administrativo</span>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <a href="https://instagram.com/megamaishortifruti" target="_blank" class="btn-social-insta" title="@megamaishortifruti" style="text-decoration:none;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583986301554&text&type=phone_number&app_absent=0" target="_blank" class="btn-social-wa" title="WhatsApp (83) 98630-1554" style="text-decoration:none;">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="index.html" class="btn-primary" style="background: var(--primary); color: white; padding: 8px 16px; font-size: 0.85rem; border-radius: var(--radius-full); display: flex; align-items: center; gap: 6px; font-weight: 700; text-decoration: none;">
+          <i class="fas fa-store"></i> Ver Catálogo Público
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 24px;">
+
+    <!-- Alerta Informativo de Armazenamento Local -->
+    <div style="background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; padding: 14px 18px; border-radius: var(--radius-md); font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px;">
+      <div style="display: flex; gap: 10px; align-items: flex-start;">
+        <i class="fas fa-info-circle" style="font-size: 1.2rem; margin-top: 2px;"></i>
+        <div>
+          <strong>Armazenamento Local no Navegador (LocalStorage):</strong>
+          As alterações feitas neste painel são salvas diretamente no armazenamento deste navegador. Esta versão inicial não necessita de banco de dados nem API externa. Para manter seus dados seguros ou transferi-los entre computadores, utilize os botões <strong>Exportar Backup JSON</strong> ou <strong>Exportar CSV</strong> abaixo.
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicadores / Estatísticas -->
+    <div class="admin-stats-grid">
+      <div class="stat-card">
+        <div class="num" id="stat-total">0</div>
+        <div class="label">Total de Produtos</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="stat-available" style="color: var(--success);">0</div>
+        <div class="label">Disponíveis na Loja</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="stat-pending" style="color: #d97706;">0</div>
+        <div class="label">Pendentes de Revisão</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="stat-fruits" style="color: #eab308;">0</div>
+        <div class="label">Frutas do Dia</div>
+      </div>
+    </div>
+
+    <!-- Barra de Ferramentas Admin -->
+    <div class="admin-toolbar">
+      <div class="admin-filters">
+        <input type="text" id="admin-search-input" class="form-control" placeholder="Buscar por nome ou ID..." style="min-width: 200px;">
+        
+        <select id="admin-filter-category" class="form-control">
+          <!-- Populado dinamicamente -->
+        </select>
+
+        <select id="admin-filter-review" class="form-control">
+          <option value="all">Todos os Status</option>
+          <option value="review">⚠️ Apenas Pendentes de Revisão</option>
+          <option value="ok">✅ Apenas Preços Confirmados</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="btn-primary" id="btn-new-product" style="background: var(--primary); color: white; padding: 9px 16px; font-size: 0.88rem;">
+          <i class="fas fa-plus"></i> Novo Produto
+        </button>
+
+        <button class="btn-admin-discrete" id="btn-export-json" title="Baixar arquivo JSON com todos os produtos">
+          <i class="fas fa-download"></i> Backup JSON
+        </button>
+
+        <button class="btn-admin-discrete" id="btn-export-csv" title="Baixar planilha CSV para Excel">
+          <i class="fas fa-file-excel"></i> Exportar CSV
+        </button>
+
+        <button class="btn-admin-discrete" id="btn-import-json" title="Carregar arquivo JSON de backup">
+          <i class="fas fa-upload"></i> Importar JSON
+        </button>
+        <input type="file" id="file-import-json" accept=".json" style="display: none;">
+
+        <button class="btn-admin-discrete" id="btn-reset-defaults" style="color: #b91c1c;" title="Restaurar dados originais da tabela">
+          <i class="fas fa-undo"></i> Restaurar Tabela
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabela de Produtos -->
+    <div style="background: white; border-radius: var(--radius-md); border: 1px solid var(--border); padding: 16px; box-shadow: var(--shadow-sm);">
+      <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Catálogo de Produtos Cadastrados</h3>
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Produto</th>
+              <th>Categoria</th>
+              <th>Preço & Unidade</th>
+              <th>Status</th>
+              <th style="text-align: right;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="admin-products-tbody">
+            <!-- Renderizado dinamicamente via admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal de Cadastro / Edição de Produto -->
+  <div class="modal-overlay" id="product-modal-overlay">
+    <div class="modal-box" style="max-width: 640px;">
+      
+      <div class="modal-header">
+        <h4 id="product-modal-title">Cadastrar / Editar Produto</h4>
+        <button class="btn-close-drawer" id="close-product-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <form id="product-form">
+        <div class="modal-body">
+          <input type="hidden" id="prod-id">
+
+          <div class="admin-form-grid">
+            
+            <div class="form-group full">
+              <label class="form-label" for="prod-name">Nome do Produto *</label>
+              <input type="text" id="prod-name" class="form-control" required placeholder="Ex: Banana Pacovan">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-category">Categoria *</label>
+              <select id="prod-category" class="form-control" required>
+                <!-- Categorias dinâmicas -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-price">Preço em R$ (deixe em branco se a confirmar)</label>
+              <input type="number" id="prod-price" class="form-control" step="0.01" min="0" placeholder="Ex: 8.90">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-unit">Unidade de Venda *</label>
+              <select id="prod-unit" class="form-control" required>
+                <option value="kg">kg (Quilograma)</option>
+                <option value="und">und (Unidade)</option>
+                <option value="100g">100g (Cem gramas)</option>
+                <option value="mc">mc (Maço)</option>
+                <option value="cx">cx (Caixa)</option>
+                <option value="bdja">bdja (Bandeja)</option>
+                <option value="sc">sc (Saco)</option>
+                <option value="lt">lt (Litro)</option>
+                <option value="cento">cento (Cento)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-step">Passo/Incremento da Quantidade</label>
+              <input type="number" id="prod-step" class="form-control" step="0.05" min="0.05" value="1" placeholder="Ex: 0.5 para meio kg">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-order">Ordem de Exibição</label>
+              <input type="number" id="prod-order" class="form-control" value="1" min="1">
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="prod-image">URL da Imagem</label>
+              <input type="url" id="prod-image" class="form-control" placeholder="https://exemplo.com/imagem.jpg">
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="prod-desc">Descrição Opcional</label>
+              <textarea id="prod-desc" class="form-control" rows="2" placeholder="Breve descrição dos atributos, sabor ou frescor..."></textarea>
+            </div>
+
+            <div class="form-group full" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; cursor: pointer;">
+                <input type="checkbox" id="prod-available" checked>
+                <span><strong>Disponível para Venda</strong> (desmarque se estiver esgotado)</span>
+              </label>
+
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; cursor: pointer;">
+                <input type="checkbox" id="prod-fruit-day">
+                <span><strong>Destacar como "Fruta do Dia"</strong></span>
+              </label>
+
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; cursor: pointer;">
+                <input type="checkbox" id="prod-featured">
+                <span><strong>Destacar na Página Inicial</strong></span>
+              </label>
+
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; cursor: pointer; color: #b45309;">
+                <input type="checkbox" id="prod-pending">
+                <span><strong>⚠️ Preço ou Unidade Pendente de Revisão Comercial</strong></span>
+              </label>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="prod-review-reason">Motivo da Revisão (se aplicável)</label>
+              <input type="text" id="prod-review-reason" class="form-control" placeholder="Ex: Preço em branco na tabela física">
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-discrete" id="btn-cancel-prod-modal">Cancelar</button>
+          <button type="submit" class="btn-primary" style="background: var(--primary); color: white;">
+            <i class="fas fa-save"></i> Salvar Produto
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="data/seed.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/repository.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+</html>
